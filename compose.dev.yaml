@@ -2,12 +2,15 @@ services:
   nextjs:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./:/app
+      - /app/node_modules
     ports:
       - "3000:3000"
-    command: npm start
+    command: npm run dev
     environment:
-      DATABASE_URL: postgres://postgres:password@db:5432/mydb
+      DATABASE_URL: postgres://postgres:password@db:5432/fjmdb_dev
     depends_on:
       - db
   db:
@@ -15,7 +18,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: mydb
+      POSTGRES_DB: fjmdb_dev
     volumes:
       - pgdata:/var/lib/postgresql/data
 
