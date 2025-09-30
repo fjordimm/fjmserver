@@ -1,0 +1,11 @@
+services:
+  app:
+    container_name: fjmserver
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
