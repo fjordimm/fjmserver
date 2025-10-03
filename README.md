@@ -23,6 +23,8 @@ To exit, just press `^C`.
 
 ### Production
 
+(For these commands, you may have to run it with `sudo`)
+
 To build and start, simply do:
 
 ```
@@ -42,4 +44,16 @@ To exit, just press `^C`.
 To stop daemons, do:
 ```
 docker compose down
+```
+
+#### Running in the Background
+
+To run the container in the background (Docker detached mode), do:
+```
+docker compose up -d
+```
+
+To check its status, do:
+```
+docker container ls
 ```
